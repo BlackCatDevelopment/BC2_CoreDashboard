@@ -66,11 +66,10 @@ class dashboard_widget_versioncheck extends \CAT\Addon\Widget
             }
         }
 
-        $next = $last+60*60*24*30;
+        $next = $last+60*60*24*30; // once per month
 
-        global $parser;
-        $parser->setPath(dirname(__FILE__).'/../templates/default');
-        return $parser->get(
+        \CAT\Base::tpl()->setPath(dirname(__FILE__).'/../templates/default');
+        return \CAT\Base::tpl()->get(
             'versioncheck.tpl',
             array(
                 'error'               => $error,
